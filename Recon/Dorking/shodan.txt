@@ -1,9 +1,13 @@
 Initialize Shodan with your API Key
 
-```shodan init API_KEY_HERE```
+## Blocks of code
+
+```
+shodan init API_KEY_HERE
+```
 
 #hostname filtering
-```shodan download results.json.gz "hostname:target.com" ```
+```shodan download results.json.gz "hostname:target.com"```
 
 #ssl certificate filtering
 shodan download results2.json.gz "ssl.cert.subject.cn:target.com"
