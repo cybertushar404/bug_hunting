@@ -1,0 +1,11 @@
+Initialize Shodan with your API Key
+
+```shodan init API_KEY_HERE```
+
+#hostname filtering
+```shodan download results.json.gz "hostname:target.com" ```
+
+#ssl certificate filtering
+shodan download results2.json.gz "ssl.cert.subject.cn:target.com"
+
+shodan parse results.json.gz --fields ip_str > ips.txt
