@@ -15,7 +15,16 @@ ftp [host]
 Username: anonymous
 Password: anything
 ```
+Lists available Nmap scripts
+```
+ls /usr/share/nmap/scripts/ \| grep "ftp"
+```
 FTP nse scripts:
 ```
 nmap –script ftp-anon,ftp-bounce,ftp-libopie,ftp-proftpd-backdoor,ftp-vsftpd-backdoor,ftp-vuln-cve2010-4221,tftp-enum -p 21 10.0.0.1
+```
+
+Nmap scripts against a target IP on port 21 for comprehensive vulnerability scanning and information gathering.
+```
+nmap -p 21 --script ftp* [TARGET-IP]
 ```
