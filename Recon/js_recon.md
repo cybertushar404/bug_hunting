@@ -22,3 +22,7 @@ cat jsfiles.txt | grep -r -E "aws_access_key|aws_secret_key|api key|passwd|pwd|h
 ```
 cat allurls.txt | grep -E "\.js$" | httpx-toolkit -mc 200 -content-type | grep -E "application/javascript|text/javascript" | cut -d' ' -f1 | xargs -I% curl -s % | grep -E "(API_KEY|api_key|apikey|secret|token|password)"
 ```
+## jsleak is a tool to find secret , paths or links in the source code
+```
+cat urls.txt | jsleak -l -s -c 30
+```
