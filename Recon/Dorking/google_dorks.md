@@ -68,7 +68,49 @@ This Google Dork Exposes Internal Test Environments 🔥
 ```
 inurl:test | inurl:env | inurl:dev | inurl:staging | inurl:sandbox | inurl:debug | inurl:temp | inurl:internal | inurl:demo site:example[.]com
 ```
-Dork :
+Credentials / Config
 ```
-site:*.com intitle:"index of" "Backup" OR "Website-Backup" OR "User record"
+site:example.com filetype:env "DB_PASSWORD" OR "API_KEY"
+site:example.com filetype:properties "password=" "jdbc"
+site:example.com inurl:"/config.php" OR inurl:"/.env"
+site:example.com inurl:/.env OR inurl:/config
 ```
+Source control / Repo metadata
+```
+site:example.com inurl:".git/" "index"
+site:example.com inurl:".svn/" OR inurl:".hg/"
+site:example.com "git-credentials" OR "id_rsa"
+```
+Cloud storage / Buckets / Object leaks
+```
+site:example.com inurl:"storage.googleapis.com" OR inurl:"s3.amazonaws.com/example.com"
+site:example.com filetype:json "google-services.json" OR "firebase"
+site:example.com inurl:"/download?file=" "s3.amazonaws.com"
+```
+Logs / Error pages / Stack traces
+```
+site:example.com filetype:log "ERROR" OR "Exception"
+site:example.com intext:"Stacktrace" OR "at com."
+site:example.com intext:"ORA-" OR intext:"SQLSTATE" OR intext:"SQLException"
+```
+CI/CD / Build artifacts / Metadata
+```
+site:example.com filetype:yml "github" OR "actions" OR "secrets"
+site:example.com filetype:jar "META-INF" "MANIFEST.MF"
+site:example.com filetype:war OR filetype:ear "WEB-INF" "web.xml"
+```
+Admin consoles / Management endpoints
+```
+site:example.com intitle:"Admin Login" OR inurl:"/admin" "login"
+site:example.com inurl:"/phpmyadmin/" OR inurl:"/adminer/"
+site:example.com inurl:":8080" "Tomcat" OR "Manager"
+```
+API docs / GraphQL / Internal APIs
+```
+site:example.com inurl:graphql "playground" OR "graphiql"
+site:example.com inurl:"/internal-api" OR inurl:"/private-api"
+site:example.com inurl:api intext:token OR intext:"Authorization: Bearer"
+```
+
+
+
